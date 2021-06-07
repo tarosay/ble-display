@@ -8,7 +8,10 @@ bluetooth.onBluetoothDisconnected(function () {
 bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function () {
     str = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
     bluetooth.uartWriteString("OK")
-    basic.showString(str)
+    for (let index = 0; index < 5; index++) {
+        basic.showString(str)
+        basic.showString(" ")
+    }
     led.setBrightness(0)
 })
 let str = ""
